@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cat /home_bif2/miguel.a/AD/analysis/listforalign.txt | parallel -j 5 \
+qualimap rnaseq \
+-outdir /home_bif2/miguel.a/AD/analysis/qmap_output/{} \
+-a proportional \
+-pe \
+-s \
+-bam /home_bif2/miguel.a/AD/analysis/samsort_output/{}_sorted.bam \
+-gtf /home_bif2/miguel.a/AD/analysis/ref_gen/gencode.v29.annotation.gtf \
+-outdir /home_bif2/miguel.a/AD/analysis/qmap_output \
+--java-mem-size=5G
