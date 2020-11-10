@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat list.txt | parallel -j 10 \
+	trimmomatic PE -threads 10 -phred33 -trimlog trimlog.txt \
+	/home_bif2/miguel.a/AD/data_raw/{}_1.fastq.gz \
+	/home_bif2/miguel.a/AD/data_raw/{}_2.fastq.gz \
+	/home_bif2/miguel.a/AD/analysis/trimmo_output/Paired/{}_1_P.fastq.gz \
+	/home_bif2/miguel.a/AD/analysis/trimmo_output/unPaired/{}_1_unP.fastq.gz \
+	/home_bif2/miguel.a/AD/analysis/trimmo_output/Paired/{}_2_P.fastq.gz \
+	/home_bif2/miguel.a/AD/analysis/trimmo_output/unPaired/{}_2_unP.fastq.gz \
+	ILLUMINACLIP:seq_adap.fasta:2:30:10 \
+	LEADING:20 TRAILING:20 SLIDINGWINDOW:4:20 MINLEN:75 
+done
