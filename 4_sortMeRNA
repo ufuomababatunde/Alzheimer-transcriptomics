@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sortmerna \
+--ref /home_bif2/miguel.a/AD/Alzh/rRNA-silva/SILVA_138.1_LSURef_tax_silva.fasta \
+--ref /home_bif2/miguel.a/AD/Alzh/rRNA-silva/SILVA_138.1_SSURef_tax_silva.fasta \
+--reads /home_bif2/miguel.a/AD/analysis/trimmo_output/Paired/SRR5305522_1_P.fastq.gz \
+--reads /home_bif2/miguel.a/AD/analysis/trimmo_output/Paired/SRR5305522_2_P.fastq.gz \
+--workdir /home_bif2/miguel.a/AD/analysis/sortME_output/ \
+--fastx \
+--paired_out \
+--threads 10 \
+-m 10000
