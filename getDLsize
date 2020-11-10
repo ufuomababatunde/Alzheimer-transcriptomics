@@ -1,0 +1,8 @@
+# get the size of the files to be downloaded
+
+!/bin/bash
+
+for line in $(cat samp_url.txt); do
+        echo $line | cut -d / -f 7 | cut -d . -f 1 >> filesize.txt
+        curl --head $line | sed -n 2p >> filesize.txt
+done
