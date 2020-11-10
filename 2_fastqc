@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat list.txt | parallel -j 20 fastqc -o fqc_output
