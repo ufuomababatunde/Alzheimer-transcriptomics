@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cat listforalign.txt | parallel -j 1 \
+STAR \
+--quantMode GeneCounts \
+--runThreadN 20 \
+--genomeDir /home_bif2/miguel.a/AD/analysis/genDir/ \
+--readFilesIn /home_bif2/miguel.a/AD/analysis/trimmo_output/Paired/{}_1_P.fastq.gz /home_bif2/miguel.a/AD/analysis$
+--readFilesCommand gunzip -c \
+--twopassMode Basic \
+--sjdbOverhang 100 \
+--alignIntronMin 20 \
+--alignIntronMax 20000 \
+--alignMatesGapMax 500 \
+--outSAMtype BAM Unsorted \
+--sjdbGTFfile /home_bif2/miguel.a/AD/analysis/ref_gen/gencode.v29.annotation.gtf \
+--outFileNamePrefix /home_bif2/miguel.a/AD/analysis/align_output/{}/ \
+--outReadsUnmapped None \
+--genomeSAindexNbases 12 \
+--genomeSAsparseD 3 \
+--genomeChrBinNbits 12
